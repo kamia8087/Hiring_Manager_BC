@@ -1,0 +1,51 @@
+<h1>Add a new Candidate</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 new-form">
+    <%= form_for(@application) do |f| %>
+    <%= render 'shared/error_messages' %>
+      <%= f.label :name %>
+      <%= f.fields_for :candidates do |candidate_field| %>
+        <%= candidate_field.text_field :name, class: 'form-control'%>
+      <% end %>
+
+      <%= f.label :email %>
+      <%= f.fields_for :candidates do |candidate_field| %>
+        <%= candidate_field.email_field :email, class: 'form-control'%>
+      <% end %>
+
+      <%= f.label :date_of_birth %>
+      <%= f.fields_for :candidates do |candidate_field| %>
+        <%= candidate_field.text_field :dob, class: 'form-control'%>
+      <% end %>
+
+      <%= f.label :gender %>
+      <%= f.fields_for :candidates do |candidate_field| %>
+        <%= candidate_field.text_field :gender, class: 'form-control'%>
+      <% end %>
+
+      <%= f.label :experience %>
+      <%= f.text_field :experience, class: 'form-control'  %>
+
+      <%= f.label :qualification %>
+      <%= f.text_field :qualification, class: 'form-control'  %>
+
+      <%= f.label :contact_number %>
+      <%= f.text_field :contact_number, class: 'form-control'  %>
+
+      <%= f.label :exp_salary %>
+      <%= f.text_field :exp_salary, class: 'form-control'  %>
+
+      <%= f.label :notice_period %>
+      <%= f.text_field :notice_period, class: 'form-control'  %>
+
+      <%= f.label :assigned_to %>
+      <%= f.text_field :assigned_to, class: 'form-control'  %>
+
+      <%= f.label :status %>
+      <%= f.text_field :status, class: 'form-control'  %>
+      <br>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<h1>Welcome! <%= current_user.name %></h1>
+  <% if @feedbacks.any? == true %>
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>ROUND</th>
+          <th>FEEDBACK</th>
+        </tr>
+      </thead>
+      <% @feedbacks.each do |feedback| %>
+        <% interview = @interviews.find_by(id: feedback.id) %>
+        <tr>
+          <td><%= feedback.id%></td>
+          <td><%= interview.interview_type %></td>
+          <td><%= feedback.message %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <h1>Sorry! but you don't have any feedbacks at the moment!</h1>
+  <% end %>
+

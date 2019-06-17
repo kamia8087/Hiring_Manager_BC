@@ -1,0 +1,10 @@
+<%= form_for(@feedback) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.label :feedback %>
+      <%= f.text_field :message, class: 'form-control'%>
+
+      <br>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
