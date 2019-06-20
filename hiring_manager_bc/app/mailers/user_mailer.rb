@@ -6,9 +6,8 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.application_update.subject
   #
   def application_update
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    @user = user
+    mail to: user.email, subject: "Application Update"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -16,10 +15,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.new_interview.subject
   #
-  def new_interview
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def new_interview(user)
+    @user = user
+    mail to: user.email, subject: "New Interview is added"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml

@@ -1,3 +1,228 @@
 // Place all the styles related to the applications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.search-bar {
+    margin-bottom: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 13px;
+}
+
+.action-button {
+    color: #fff;
+    background-color: #e02c4b;
+    border-color: #e02c4b; 
+}
+.interview-form-container {
+    display: none
+}
+
+.int-btn {
+    margin-top: 5px;
+}
+
+.action-list {
+    list-style: none;
+    margin-right: 5px;
+    a {
+        color: #fff
+    }
+    a:hover {
+        color: #fff
+    }
+}
+
+.action-item {
+    display: flex;
+    justify-content: flex-end;
+}
+
+*{
+    box-sizing: border-box;
+    &:active, &:focus{
+    	border: 0;
+    	outline: 0;
+    }
+}
+
+html, body {
+	min-height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body{
+	background-color: #212020;
+	color: #3949AB;
+	font-family: Helvetica, Times, serif;
+	font-size: 1.15rem;
+	line-height: 1.618;
+	text-rendering: optimizeLegibility;
+}
+
+img{ border-width: 0; max-width: 100%; }
+a{
+	color: #EC407A;
+	text-decoration: none;
+}
+a:hover{ color: #E91E63; }
+
+::selection{ 
+	color: #212020;
+	background-color: rgba(#FFEB3B, .95);
+}
+
+h1 {
+	font-size: 3.25rem;
+	font-weight: 300;
+	line-height: 1;
+	margin: 1em auto 0;
+	word-spacing: -0.1em;
+}
+h6 {
+	font-size: .95rem;
+	font-weight: 300;
+	line-height: 1;
+	margin: 0 auto;
+	word-spacing: -0.1em;
+}
+
+p{
+	color: #EC407A;
+}
+
+
+
+@mixin gradient-horizontal-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
+	background-image: -webkit-linear-gradient(left, $start-color, $mid-color $color-stop, $end-color);
+	background-image: -o-linear-gradient(left, $start-color, $mid-color $color-stop, $end-color);
+	background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
+	background-repeat: no-repeat;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1);
+}
+
+
+
+
+.container{
+	max-width: 95%;
+	width: 45rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.timeline{
+	position: relative;
+    display: block;
+    overflow: hidden;
+	// width: 30rem;
+	width: 100%;
+	height: 9rem;
+	margin: 3rem auto;
+	@include gradient-horizontal-three-colors(#880E4F, #E91E63, 50%, #F06292);
+	border-radius: 5px;
+	&--inner{
+		position: absolute;
+		display:block;
+		top: 50%;
+		right: 1rem;
+		left: 1rem;
+		height: 6px;
+		margin: 0;
+		margin-top: -3px;
+		border: 0;
+		background: rgba(black, 0.1);
+		box-shadow: 0 1px 2px rgba(255,255,255,0.1),
+					0 1px 1px rgba(black, 0.2) inset;
+		border-radius: 1em;
+		z-index: 1;
+		
+		&-pin{
+			position: absolute;
+			display: block;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			background-color: #F06292;
+			border-radius: 100%;
+			cursor: help;
+			box-shadow: 0 0 0 2px #ffffff,
+						0 2px 6px rgba(black, .35);
+			transition: all 0.7s ease;
+		}
+		@for $i from 0 through 11 {
+			&-pin:nth-of-type(#{$i}) {
+				$step: 10;
+				$revolution-color: mix(#F06292, darken(#880E4F, 10), $i*(($step)-2));
+				background-color: $revolution-color;
+				left: -(1-$i)*$step*1%;
+			}
+		}
+	}
+}
+
+.is-featured{
+	width: 14px;
+	height: 14px;
+}
+.is-normal{
+	width: 8px;
+	height: 8px;
+}
+
+[data-title] {
+	white-space: nowrap;
+    &:after {
+		content: attr(data-title);
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		padding: 0.5rem;
+		color: #333;
+		font-size: .75rem;
+		font-style: normal;
+		background-color: #eee;
+		border-radius: 5px;
+		opacity: 0;
+		transition: .25s cubic-bezier(0.905, -0.250, 0.520, 1);
+		transform: translateX(-50%) rotate(5deg);
+		pointer-events: none;
+		z-index: 2;
+    }
+
+    &:hover:after {
+		margin-bottom: 18px;
+		opacity: 1;
+		transform: translateX(-50%);
+		font-size: larger
+    }
+
+    &:before {
+		content: '';
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		margin-bottom: -16px;
+		border: 10px solid transparent;
+		border-top-color: #eee;
+		opacity: 0;
+		transition: .25s cubic-bezier(0.905, -0.250, 0.520, 1);
+		transform: translateX(-50%) rotate(5deg);
+		pointer-events: none;
+		z-index: 3;
+    }
+
+    &:hover:before {
+		margin-bottom: -1px;
+		opacity: 1;
+		transform: translateX(-50%);
+    }
+}

@@ -7,7 +7,7 @@
       <%= submit_tag 'Search', :name => nil %>
   <% end %>
   </div>
-    <table class="table">
+    <table class="table table-bordered table-responsive">
       <thead>
         <tr>
           <th>S.No</th>
@@ -31,5 +31,5 @@
     <h1>Sorry! but you don't have any candidates at the moment!</h1>
   <% end %>
 <% if current_user.role === "Manager" %>
-    <%= link_to "Add an applicant", new_application_path , class: "btn btn-lg btn-primary" %>
+    <%= link_to "Add an applicant", new_application_path , class: "btn btn-lg btn-primary action-button" %>
 <% end %>

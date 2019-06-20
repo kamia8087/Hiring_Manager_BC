@@ -1,12 +1,15 @@
-<%= form_for(@interview) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <div class="field">
-      <%= f.label :interview_round %>
-      <%= f.text_field :interview_type, class: 'form-control'%>
+<div>
+  <%= form_for(@interview) do |f| %>
+      <div class="field">
+        <%= f.hidden_field :application_id, :value => params[:id] %>
 
-      <%= f.label :Interviewer %>
-      <%= f.text_field :assignee, class: 'form-control'%>
-      <br>
-    </div>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-  <% end %>
+        <%= f.label :interview_round %>
+        <%= f.text_field :interview_type, class: 'form-control'%>
+
+        <%= f.label :Interviewer %>
+        <%= f.text_field :assignee, class: 'form-control'%>
+        <br>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+</div>

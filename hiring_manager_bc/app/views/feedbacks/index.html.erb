@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <% @feedbacks.each do |feedback| %>
-        <% interview = @interviews.find_by(id: feedback.id) %>
+        <% interview = @interviews.find_by(id: feedback.interview_id) %>
         <tr>
           <td><%= feedback.id%></td>
           <td><%= interview.interview_type %></td>

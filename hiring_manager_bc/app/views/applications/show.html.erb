@@ -1,16 +1,33 @@
 <div class="row">
-    <aside class="col-md-4">
+    <aside class="col-md-7">
         <h4>Basic User Info</h4>
         <section class="candidate_info">
             <%= render 'shared/basic_candidate_info' %>
         </section>
     </aside>
-    <div class="col-md-4">
-        <h4>Move To Another Round</h4>
-        <%= render 'shared/interview_form' %>
-    </div>
-    <div class="col-md-4">
-        <h4>Add FeedBack and Status</h4>
-        <%= render 'shared/feedback_form' %>
+    <div class="col-md-5 action-item">
+        <ul class="action-list btn btn-lg btn-primary action-button">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    ACTIONS<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <% application = @application.id %>
+                    <li><%= link_to "APPROVE" , application_approve_path(:id => application), method: :patch %></li>
+                    <li><%= link_to "REJECT" , application_reject_path(:id => application), method: :patch %></li>
+                    <li><%= link_to "EDIT" , edit_application_path %></li>
+                    <li><%= link_to "DELETE", @application, method: :delete,
+                                  data: { confirm: "You sure?" } %></li>
+                </ul>
+            </li>
+        </ul>
+        <%= link_to "SCHEDULE AN INTERVIEW", new_interview_path(:id => @application.id), class: "btn btn-lg btn-primary action-button" %>
     </div>
 </div>
+<% if @app_interviews.present? %>
+    <div class="container timeline-container">
+        <div class="row">
+            <%= render 'shared/timeline' %>
+        </div>
+    </div>
+<% end %>

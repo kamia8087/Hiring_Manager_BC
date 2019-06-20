@@ -8,8 +8,8 @@ class CreateApplications < ActiveRecord::Migration[5.2]
       t.string :assigned_to
       t.string :status
       t.string :exp_salary
-      t.references :user, foreign_key: true
-      t.references :candidate, foreign_key: true
+      t.references :user, foreign_key: {on_delete: :cascade}
+      t.references :candidate, foreign_key: {on_delete: :cascade}
 
       t.timestamps
     end

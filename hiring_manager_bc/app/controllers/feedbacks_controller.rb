@@ -10,7 +10,6 @@ class FeedbacksController < ApplicationController
     @interviews = Interview.find_by(application_id: @application.id)
     @feedback = @interviews.feedbacks.new(feedback_params)
     if @feedback.save
-      byebug
       UserMailer.new_feedback(@user).deliver_now
       flash[:info] = "Please check your email to."
       redirect_to @application

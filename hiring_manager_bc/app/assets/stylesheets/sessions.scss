@@ -3,3 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.login-form {
+    color: #3a1a53;
+    margin-top: 12em;
+    font-family: catamaran,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+}
+
+.action-button {
+    color: #fff;
+    background-color: #e02c4b;
+    border-color: #e02c4b; 
+}
+

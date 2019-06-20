@@ -109,13 +109,19 @@ footer {
   height: -webkit-fill-available;
 }
 
-.search-bar {
-  text-align: center;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 13px;
-}
-
 .candidate_info {
   overflow: hidden;
 }
+
+.nav-item {
+  font-family: catamaran,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+  a{
+    color: #fff!important;
+    .dropdown {
+      color: #fff!important;
+      font-weight: bold;
+    }
+  }
+}
+
+

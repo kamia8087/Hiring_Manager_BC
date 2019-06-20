@@ -1,14 +1,6 @@
 <div class="info_container">
     <div class="row">
         <div class="col-md-6">
-            <label>User Id</label>
-        </div>
-        <div class="col-md-6">
-            <p><%= @application.user_id %></p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
             <label>Name</label>
         </div>
         <div class="col-md-6">
@@ -37,6 +29,14 @@
         </div>
         <div class="col-md-6">
             <p><%= @application.status %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Resume</label>
+        </div>
+        <div class="col-md-6">
+            <p><%= link_to @application.resume, '/uploads/application/resume/3/flower.jpeg' %></p>
         </div>
     </div>
 </div>

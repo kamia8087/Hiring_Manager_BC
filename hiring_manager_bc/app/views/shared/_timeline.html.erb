@@ -1,0 +1,16 @@
+<% if @app_interviews.present? %>
+    <div class="col-md-8">
+        <section class="container">
+        <header>
+        <h1>Candidate Timeline</h1>
+        </header>
+        <section class="timeline">
+            <figure class="timeline--inner">
+                <% @app_interviews.each do |t| %>
+                    <i class="timeline--inner-pin is-featured" data-title=<%= t.interview_type %>></i>
+                <% end %>
+            </figure>
+        </section>
+        </section>
+    </div>
+<% end %>
